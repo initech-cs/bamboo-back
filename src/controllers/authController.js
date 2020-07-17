@@ -10,7 +10,7 @@ exports.loginWithEmail = async (req,res,next)=>{
     }
     const user = await User.loginWithEmail(email,password)
     if(!user){
-        return res.status(401).json({status:"Fail",error:"Wrong email or passwor"})
+        return res.status(401).json({status:"Fail",error:"Wrong email or password"})
     }
     const token = await user.generateToken()
 
