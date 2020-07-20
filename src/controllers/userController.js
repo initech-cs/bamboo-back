@@ -2,13 +2,14 @@ const User = require("../models/user");
 
 exports.createUser = async (req, res, next) => {
   try {
-    const { email, name, password, type } = req.body;
+    const { email, name, password ,type} = req.body;
     if (!email || !name || !password) {
       return res.status(400).json({
         status: "Fail",
         error: "Email, name and password are required",
       });
     }
+
 
     const user = await User.create({
       email: email,

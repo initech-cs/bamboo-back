@@ -25,12 +25,16 @@ const schema = new mongoose.Schema(
     password: {
       type: String,
     },
+    pictureURL:{
+      type: String,
+      trim: true,
+    },
     tokens: [String],
     type: {
       type: String,
       enum: ["normal", "host"],
       required: [true, "Type is required"],
-      defaut: "normal",
+      default: "normal",
     },
   },
   {

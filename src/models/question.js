@@ -15,27 +15,50 @@ const schema = new mongoose.Schema({
     maxLength: 1000,
     required: true,
   },
-  source:{
+  source: {
     type: String,
     trim: true,
     required: true,
   },
-
-  host: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
+  sponsors: [
+    {
+      type: String,
+      trim: true,
+      required: true,
+    },
+  ],
+  Categories: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Theloai",
+      required: true,
+    }
+  ],
+  logo: {
+    type: String,
+    trim: true,
     required: true,
   },
-  averageRating: {
+  difficulties: {
     type: Number,
-    default: 0,
-    min: 0,
-    max: 5,
+    trim: true,
+    required: true,
   },
-  nRating: {
-    type: Number,
-    default: 0,
+  author: {
+    type: String,
+    trim: true,
+    required: false,
   },
+  // averageRating: {
+  //   type: Number,
+  //   default: 0,
+  //   min: 0,
+  //   max: 5,
+  // },
+  // nRating: {
+  //   type: Number,
+  //   default: 0,
+  // },
 });
 
 const Question = mongoose.model("Question", schema);
